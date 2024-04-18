@@ -9,7 +9,7 @@ class Stack:
         return not self.items
 
     def pop(self):
-        if self.empty is True:
+        if self.empty() is True:
             raise Exception("Stack is empty")
         return self.items.pop()
 
