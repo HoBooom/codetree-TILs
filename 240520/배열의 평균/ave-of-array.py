@@ -17,5 +17,6 @@ print()
 
 sum1=sum(list0[0])
 sum2=sum(list0[1])
+all_avg = ((sum1+sum2)/8)
 
-print((sum1+sum2)/8)
+print(round(all_avg,1))
