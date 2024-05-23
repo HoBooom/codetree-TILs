@@ -14,7 +14,7 @@ for column in range(columns):
             list0[row][column] = current
             current += 1
         else:
-            list0[3 - row][column] = current
+            list0[(rows -1) - row][column] = current
             current += 1
 
 for i in range(rows):
