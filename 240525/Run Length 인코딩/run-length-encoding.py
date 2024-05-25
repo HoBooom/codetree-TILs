@@ -3,6 +3,10 @@ rle = []
 
 temp = 1
 
+if len(arr) == 1:
+    print(2)
+    print(arr+2)
+
 for i in range(1,len(arr)):
     if arr[i] == arr[i - 1]:
         temp += 1
@@ -17,7 +21,7 @@ for i in range(1,len(arr)):
             rle.append(arr[i])
             rle.append(str(temp))
             continue
-        
+
 
 
 new_str = ''.join(rle)
