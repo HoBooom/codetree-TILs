@@ -25,7 +25,7 @@ for i in range(1,len(arr)):
 new_str = ''.join(rle)
 if len(arr) == 1:
     print(2)
-    print(arr+'2')
+    print(arr+'1')
 else:
     print(len(new_str))
     print(new_str)
