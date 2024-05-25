@@ -13,6 +13,11 @@ for i in range(1,len(arr)):
         rle.append(arr[i - 1])
         rle.append(str(temp))
         temp = 1
+        if i == len(arr) - 1:
+            rle.append(arr[i - 1])
+            rle.append(str(temp))
+            continue
+        
 
 
 new_str = ''.join(rle)
