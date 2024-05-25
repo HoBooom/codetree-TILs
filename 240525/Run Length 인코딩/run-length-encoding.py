@@ -3,9 +3,7 @@ rle = []
 
 temp = 1
 
-if len(arr) == 1:
-    print(2)
-    print(arr+'2')
+
 
 for i in range(1,len(arr)):
     if arr[i] == arr[i - 1]:
@@ -25,5 +23,9 @@ for i in range(1,len(arr)):
 
 
 new_str = ''.join(rle)
-print(len(new_str))
-print(new_str)
+if len(arr) == 1:
+    print(2)
+    print(arr+'2')
+else:
+    print(len(new_str))
+    print(new_str)
