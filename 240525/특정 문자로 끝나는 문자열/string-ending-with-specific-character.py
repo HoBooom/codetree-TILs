@@ -12,5 +12,5 @@ for i in range(10):
         print(list0[i])
         tf = True
 
-if !tf:
+if tf is None:
     print(tf)
