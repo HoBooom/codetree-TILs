@@ -1,6 +1,6 @@
 def find_index(s,obj):
 
-    for i in range(len(s)):
+    for i in range(len(s)-len(obj) + 1):
         if s[i] == obj[0]:
             tf = is_in(s,obj,i)
             if tf:
