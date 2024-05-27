@@ -1,41 +1,51 @@
-def switch_chairs(n, k, commands):
-    # 초기 설정: 각 사람이 자신의 번호에 해당하는 자리에 앉아 있음
-    men_in_chair = [i for i in range(n)]
-    men_move = [[] for _ in range(n)]
-    
-    for i in range(n):
-        men_move[i].append(i)
+def swich_chair(men_move, men_in_chair, commend_a, commend_b, k):
+    for i in range(k):
+        ca = commend_a[i] #1
+        cb = commend_b[i] #3
+        men_A = men_in_chair[ca] #1남
+        men_B = men_in_chair[cb] #3남
+        men_in_chair[ca],men_in_chair[cb] = men_in_chair[cb],men_in_chair[ca]
 
-    # 자리 바꾸기 명령 반복 적용
-    for _ in range(3):
-        for a, b in commands:
-            a -= 1
-            b -= 1
-            men_in_chair[a], men_in_chair[b] = men_in_chair[b], men_in_chair[a]
+        if cb not in men_move[men_A]:
+            men_move[men_A].append(cb)
+        if ca not in men_move[men_B]:
+            men_move[men_B].append(ca)
 
-            if b not in men_move[men_in_chair[a]]:
-                men_move[men_in_chair[a]].append(b)
-            if a not in men_move[men_in_chair[b]]:
-                men_move[men_in_chair[b]].append(a)
-    
-    # 각 사람이 앉을 수 있는 자리의 개수 출력
-    for i in range(n):
-        print(len(men_move[i]))
+    return men_move,men_in_chair  
 
-# 입력 받기
-import sys
-input = sys.stdin.read
-data = input().split()
 
-n = int(data[0])
-k = int(data[1])
-commands = []
+n,k = map(int,input().split())
 
-index = 2
-for _ in range(k):
-    a = int(data[index])
-    b = int(data[index + 1])
-    commands.append((a, b))
-    index += 2
+men_in_chair = [i for i in range(n)]
 
-switch_chairs(n, k, commands)
+
+
+commend_a = []
+commend_b = []
+
+for i in range(k):
+    a,b = map(int,input().split())
+    commend_a.append(a - 1)
+    commend_b.append(b - 1)
+   
+
+men_move =[
+    [] for _ in range(n)
+]
+
+for i in range(n):
+    men_move[i].append(i)
+
+while True:
+    post_move = men_move
+    men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
+    men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
+    men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
+    if post_move == men_move:
+        break
+
+
+
+
+for i in range(n):
+    print(len(men_move[i]))
