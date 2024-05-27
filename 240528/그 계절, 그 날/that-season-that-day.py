@@ -30,9 +30,9 @@ y,m,d = map(int,input().split())
 if is_yoon(y):
     if m == 2 and d > 29:
         print(-1)
-    if not is_31(m) and d >30:
+    elif not is_31(m) and d >30:
         print(-1)
-    if is_31:
+    elif is_31:
         if season(m) == 0:
             print("Spring")
         elif season(m) ==1:
@@ -44,9 +44,9 @@ if is_yoon(y):
 else:
     if m == 2 and d > 28:
         print(-1)
-    if not is_31(m) and d >30:
+    elif not is_31(m) and d >30:
         print(-1)
-    if is_31:
+    elif is_31:
         if season(m) == 0:
             print("Spring")
         elif season(m) ==1:
