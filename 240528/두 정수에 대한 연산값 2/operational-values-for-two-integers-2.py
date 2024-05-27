@@ -1,8 +1,12 @@
 def f1(a,b):
     if a > b:
-        return b + 10, a*2
+        small = b + 10
+        big = a * 2
+        return small, big
     else:
-        return a + 10,b*2
+        small = a + 10
+        big  = b * 2
+        return small, big
 
 
 a,b = map(int,input().split())
