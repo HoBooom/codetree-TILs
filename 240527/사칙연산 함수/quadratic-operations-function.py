@@ -9,7 +9,10 @@ def minus(n,m):
 
 def div(n,m):
     ans = float(n) / float(m)
-    return ans
+    temp = round(ans, 2)
+    temp = (temp*100) //100
+
+    return temp
 
 s = input()
 
@@ -18,7 +21,7 @@ if '*' in s:
     print(f"{s} = {mul(n,m)}")
 elif '/' in s:
     n,m = map(float,s.split(" / "))
-    print("{} = {:.1f}".format(s,div(n,m)))
+    print(f"{s} = {div(n,m)}")
 elif '+' in s:
     n,m = map(int,s.split(" + "))
     print(f"{s} = {plus(n,m)}")
