@@ -2,7 +2,7 @@ def f1(a,b):
     if a > b:
         small = b + 10
         big = a * 2
-        return small, big
+        return big, small
     else:
         small = a + 10
         big  = b * 2
@@ -11,6 +11,7 @@ def f1(a,b):
 
 a,b = map(int,input().split())
 
-s,b = f1(a,b)
+a,b = f1(a,b)
 
-print(s,b)
+
+print(a,b)
