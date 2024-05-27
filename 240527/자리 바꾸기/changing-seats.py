@@ -36,14 +36,9 @@ men_move =[
 for i in range(n):
     men_move[i].append(i)
 
-while True:
-    post_move = men_move
-    men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
-    men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
-    men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
-    if post_move == men_move:
-        break
 
+for i in range(k):
+    men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
 
 
 
