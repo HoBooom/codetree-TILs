@@ -18,7 +18,7 @@ if '*' in s:
     print(f"{s} = {mul(n,m)}")
 elif '/' in s:
     n,m = map(float,s.split(" / "))
-    print("{} = {:.0f}".format(s,div(n,m)))
+    print("{} = {:.1f}".format(s,div(n,m)))
 elif '+' in s:
     n,m = map(int,s.split(" + "))
     print(f"{s} = {plus(n,m)}")
