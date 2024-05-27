@@ -9,7 +9,7 @@ def minus(n,m):
 
 def div(n,m):
     ans = float(n) / float(m)
-    ans = round(ans)
+    ans = round(ans,0)
     return ans
 
 s = input()
