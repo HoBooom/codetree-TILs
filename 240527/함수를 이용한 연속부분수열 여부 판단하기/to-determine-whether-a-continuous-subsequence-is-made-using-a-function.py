@@ -13,7 +13,7 @@ list1 = list(map(int,input().split()))
 
 tf = False
 
-for i in range(n):
+for i in range(n-m+1):
     if list0[i]==list1[0]:
         tf = is_part(list0,list1,i)
 
