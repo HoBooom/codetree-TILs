@@ -3,13 +3,13 @@ def swich_chair(men_move, men_in_chair, commend_a, commend_b, k):
         ca = commend_a[i] #1
         cb = commend_b[i] #3
         men_A = men_in_chair[ca] #1남
-        men_b = men_in_chair[cb] #3남
+        men_B = men_in_chair[cb] #3남
         men_in_chair[ca],men_in_chair[cb] = men_in_chair[cb],men_in_chair[ca]
 
         if cb not in men_move[men_A]:
             men_move[men_A].append(cb)
-        if ca not in men_move[men_b]:
-            men_move[men_b].append(ca)
+        if ca not in men_move[men_B]:
+            men_move[men_B].append(ca)
 
     return men_move,men_in_chair  
 
