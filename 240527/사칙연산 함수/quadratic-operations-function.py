@@ -10,9 +10,9 @@ def minus(n,m):
 def div(n,m):
     ans = float(n) / float(m)
     temp = round(ans, 2)
-    temp = (temp*100) //100
+    temp = (temp*100) // 100
 
-    return temp
+    return int(temp)
 
 s = input()
 
