@@ -11,7 +11,10 @@ def swich_chair(men_move, men_in_chair, commend_a, commend_b, k):
         if ca not in men_move[men_B]:
             men_move[men_B].append(ca)
 
-    return men_move,men_in_chair  
+    return men_move,men_in_chair 
+
+def deepcopy(lst):
+    return [item[:] for item in lst]
 
 
 n,k = map(int,input().split())
@@ -37,8 +40,13 @@ for i in range(n):
     men_move[i].append(i)
 
 
-for i in range(k):
+while True:
+    post_move = deepcopy(men_move)
     men_move, men_in_chair = swich_chair(men_move,men_in_chair, commend_a, commend_b, k)
+    
+    if post_move == men_move:
+        break
+
 
 
 
