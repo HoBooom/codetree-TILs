@@ -1,4 +1,7 @@
 def is_date(m,d):
+    if m > 12:
+        return False
+
     if m == 2 and d>28:
         return False
     elif m <=7 and m % 2 != 0:
@@ -13,8 +16,7 @@ def is_date(m,d):
     elif m > 7 and m % 2!=0:
         if d > 30:
             return False
-    elif m >12:
-        return False
+    
     return True
 
 
