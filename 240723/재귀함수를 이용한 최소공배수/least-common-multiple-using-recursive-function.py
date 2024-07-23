@@ -17,13 +17,16 @@ def sub_f(a,b):
     else:
         return sub_f(b,a)
         
-def f(numbers,n):
-    mul = numbers[n] * numbers[n - 1]
-    if n == 1:
-        return mul // sub_f(numbers[n],numbers[n-1])
-    else:
-        temp = mul // sub_f(numbers[n],numbers[n-1])
-        numbers[n-1] = temp
-        return f(numbers,n - 1)
+def f(a,b):
+    mul = a * b
+    return (a*b) // sub_f(a,b)
 
-print(f(numbers,n - 1))
+def ff(numbers):
+    if len(numbers) <= 1:
+        return numbers.pop()
+    n1 = numbers.pop()
+    n2 = numbers.pop()
+    numbers.append(f(n1,n2))
+    return ff(numbers)
+
+print(ff(numbers))
