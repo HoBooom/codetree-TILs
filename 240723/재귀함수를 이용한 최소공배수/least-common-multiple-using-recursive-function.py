@@ -3,19 +3,10 @@ n = int(input())
 numbers = list(map(int,input().split()))
 
 def sub_f(a,b):
-    if a > b:
-        temp = a % b
-        if temp == 0:
-            return b
-        if b % temp == 0:
-            return temp
-        else:
-            if b > temp:
-                return sub_f(b,temp)
-            else:
-                return sub_f(temp,b)
+    if b == 0:
+        return a
     else:
-        return sub_f(b,a)
+        return sub_f(b, a%b)
         
 def f(a,b):
     mul = a * b
