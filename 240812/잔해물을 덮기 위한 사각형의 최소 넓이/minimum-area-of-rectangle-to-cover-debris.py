@@ -63,12 +63,12 @@ elif (small_x["big_y"] - small_x["small_y"]) < (big_x["big_y"] - big_x["small_y"
     y_len = (big_x["big_y"] - big_x["small_y"])
 elif (small_x["big_y"] - small_x["small_y"]) == (big_x["big_y"] - big_x["small_y"]):
     if small_x["big_y"] - small_x["small_y"] == 0:
-        y_len = 1
+        y_len = 0
     else:
         y_len = small_x["big_y"] - small_x["small_y"]
 
 if big_x["x"] - small_x["x"] == 0:
-    x_len = 1
+    x_len = 0
 else:
     x_len = big_x["x"] - small_x["x"]
 
