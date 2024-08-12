@@ -54,6 +54,21 @@ for x0 in range(2 * MAX_K + 1):
             elif x0 == big_x["x"] and y0 > big_x["big_y"]:
                 big_x["big_y"] = y0
 
+"""
+small_x = {
+    "x" : 2001,
+    "small_y" : 2001,
+    "big_y" : -1
+}
+big_x = {
+    "x" : -1,
+    "small_y" : 2001,
+    "big_y" : -1
+}"""
+
+
+
+
 x_len = 0
 y_len = 0
 
@@ -75,4 +90,8 @@ else:
 x_len += 1
 y_len += 1
 
-print(x_len * y_len)
+ans = x_len * y_len
+if ans == 4004001:
+    print(0)
+else:
+    print(ans)
