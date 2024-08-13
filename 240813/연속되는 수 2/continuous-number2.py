@@ -15,6 +15,10 @@ for i in range(n):
         count = 0
     
 if n > 0 and max_fre == 0:
-    max_fre = 1
+    if count == 1:
+        max_fre = 1
+    else:
+        max_fre = count
+
 
 print(max_fre)
