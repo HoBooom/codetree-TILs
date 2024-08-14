@@ -45,14 +45,17 @@ count = 0
 
 while True:
     if a[cnt_a] == b[cnt_b]:
-        if cnt_a != 1 and (a[cnt_a - 1] != b[cnt_b - 1]):
+        if (a[cnt_a - 1] != b[cnt_b - 1]):
             count += 1
-        elif cnt_a == 1:
-            count += 1
+        #elif cnt_a == 1:
+        #    count += 1
+
     if cnt_a + 1 < len(a): #a배열의 길이가 5이면 인덱스는 4까지만 커져야함
         cnt_a += 1
+        #print("cnt_a",cnt_a, end= " ")
     if cnt_b + 1 < len(b):
         cnt_b += 1
+        #print("cnt_b",cnt_b)
     
     if cnt_a + 1 == len(a) and cnt_b + 1 == len(b):
         break
