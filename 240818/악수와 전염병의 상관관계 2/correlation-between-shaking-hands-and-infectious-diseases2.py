@@ -39,7 +39,7 @@ for i,v in enumerate(command):
         if mans[v[1]][1] > 0:
             mans[v[1]][1] -= 1
         if mans[v[2]][1] > 0:
-            mans[v[2][1]] -= 1
+            mans[v[2]][1] -= 1
     elif mans[v[1]][0] == False and mans[v[2]][0] == False: #경우4 F,F
         continue
 
