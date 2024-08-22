@@ -1,44 +1,26 @@
-n =int(input())
+n = int(input())
 
 board = [
-   [0 for _ in range(n)] for _ in range(n)
+    list(map(int,input().split())) for _ in range(n)
 ]
 
-count = 0 
+dxs = [1,0,-1, 0]
+dys = [0,1, 0,-1]
 
+def is_range(x,y):
+    return 0 <= x and x < n and 0 <= y and y < n
+
+def check(x,y):
+    cnt = 0
+    for dx,dy in zip(dxs,dys):
+        nx,ny = x + dx, y + dy
+        if is_range(nx,ny) and board[nx][ny] == 1:
+            cnt += 1
+    return cnt
+
+count =0 
 for i in range(n):
-    temp = list(map(int,input().split()))
-    board[i] = temp
-
-
-        
-
-def check(x,y,board,n):
-    temp = 0
-    #동
-    if x + 1 < n:
-        if board[x + 1][y] == 1:
-            temp += 1
-    #서
-    if x - 1 >= 0:
-        if board[x - 1][y] == 1:
-            temp += 1
-    #남
-    if y + 1 < n:
-        if board[x][y + 1] == 1:
-            temp += 1
-    #북
-    if y - 1 >=0:
-        if board[x][y - 1] == 1:
-            temp += 1
-
-    if temp >=3:
-        return True
-    else:
-        return False
-
-for x in range(n):
-    for y in range(n):
-        if check(x,y,board,n) == True:
+    for j in range(n):
+        if check(i,j) >= 3:
             count += 1
 print(count)
