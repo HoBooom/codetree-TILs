@@ -16,7 +16,7 @@ def check(x,y):
     temp = 0
     for dx,dy in zip(dxs,dys):
         nx,ny = x + dx,y + dy
-        if board[nx][ny] == 1:
+        if is_range(nx,ny) and board[nx][ny] == 1:
             temp += 1
     if temp == 3:
         return True
