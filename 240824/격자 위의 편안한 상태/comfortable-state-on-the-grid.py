@@ -18,7 +18,7 @@ def check(x,y):
         nx,ny = x + dx,y + dy
         if board[nx][ny] == 1:
             temp += 1
-    if temp >= 3:
+    if temp == 3:
         return True
     return False
 
