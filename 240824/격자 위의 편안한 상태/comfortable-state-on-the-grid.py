@@ -10,7 +10,7 @@ dxs = [0,1,0,-1]
 dys = [1,0,-1,0]
 
 def is_range(x,y):
-    return 1<=x and x<n and 1<=y and y<n
+    return 1<=x and x<=n and 1<=y and y<=n
 
 def check(x,y):
     temp = 0
