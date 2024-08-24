@@ -3,7 +3,7 @@ n,m = map(int,input().split())
 MAX_K = 100
 
 board = [
-    [0 for _ in range(2*MAX_K + 1)] for _ in range(2*MAX_K + 1)
+    [0 for _ in range(MAX_K + 1)] for _ in range(MAX_K + 1)
 ]
 
 dxs = [0,1,0,-1]
@@ -24,7 +24,7 @@ def check(x,y):
 
 for _ in range(m):
     r,c = map(int,input().split())
-    r,c = r + MAX_K, c + MAX_K
+    #r,c = r + MAX_K, c + MAX_K
     board[r][c] = 1
     if check(r,c):
         print(1)
