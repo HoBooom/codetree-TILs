@@ -4,36 +4,30 @@ board = [
     list(input()) for _ in range(n)
 ]
 
-#print(board)
-
-light = [
-    [0 for _ in range(n)] for _ in range(n)
-]
 
 k = int(input())
 
-dxs = [1,0,-1,0]
-dys = [0,-1,0,1]
-
-first_direct = k
-if first_direct != 1:
-    first_direct = (k - 1) // n
-elif first_direct == 1:
-    first_direct = 0
-
 r,c = 0,0
-if first_direct == 0:
-    r = n -1
+
+if k <= n:
+    r = n - 1
     c = k - 1
-elif first_direct == 1:
-    r = 2*n - k
+    first_direct = 0
+elif k <= 2 * n:
+    r = 2 * n - k
     c = n - 1
-elif first_direct == 2:
+    first_direct = 1
+elif k <= 3 * n:
     r = 0
-    c = 3*n - k
-elif first_direct == 3:
-    r = k - (3*n + 1)
+    c = 3 * n - k
+    first_direct = 2
+else:
+    r = k - 3 * n - 1
     c = 0
+    first_direct = 3
+
+def is_range(r, c):
+    return 0 <= r < n and 0 <= c < n
 
 ans = 1
 
