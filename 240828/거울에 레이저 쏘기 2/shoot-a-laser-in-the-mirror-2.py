@@ -45,25 +45,26 @@ def gogo(input_dir,r,c,ans):
         return ans 
     if input_dir == 0:#북
         if board[r][c] == '/':
-            return 1,r,c-1,ans + 1
+            return gogo(1,r,c-1,ans + 1)
         else:
-            return 3,r,c+1,ans + 1
+            return gogo(3,r,c+1,ans + 1)
     elif input_dir == 1:#동
         if board[r][c] == '/':
-            return 0,r-1,c,ans + 1
+            return gogo(0,r-1,c,ans + 1)
         else:
-            return 2,r+1,c,ans + 1
+            return gogo(2,r+1,c,ans + 1)
     elif input_dir == 2:#남
         if board[r][c] == '/':
-            return 3,r,c+1,ans + 1
+            return gogo(3,r,c+1,ans + 1)
         else:
-            return 1,r,c-1,ans + 1
+            return gogo(1,r,c-1,ans + 1)
     elif input_dir == 3:#서
         if board[r][c] == '/':
-            return 2,r+1,c,ans + 1
+            return gogo(2,r+1,c,ans + 1)
         else:
-            return 0,r-1,c,ans + 1
+            return gogo(0,r-1,c,ans + 1)
 
 
-final_ans,r,c,ans = (gogo(first_direct,r,c,ans))
+#final_ans,r,c,ans = (gogo(first_direct,r,c,ans))
+final_ans = (gogo(first_direct,r,c,ans))
 print(final_ans)
