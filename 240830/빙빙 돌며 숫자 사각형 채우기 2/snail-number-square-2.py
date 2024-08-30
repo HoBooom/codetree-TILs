@@ -1,7 +1,7 @@
 n,m = map(int,input().split())
 
 board = [
-    [0 for _ in range(n)] for _ in range(n)
+    [0 for _ in range(m)] for _ in range(n)
 ]
 
 drs = [1,0,-1,0]
