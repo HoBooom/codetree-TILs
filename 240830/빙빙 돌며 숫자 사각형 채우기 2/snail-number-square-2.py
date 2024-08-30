@@ -22,8 +22,7 @@ while cnt < n*m:
     if is_range(nr,nc) and board[nr][nc] == 0:
         r,c = nr,nc
         cnt += 1
-        board[r][c] = cnt
-        
+        board[r][c] = cnt   
     else:
         direct = (direct + 1) % 4
 
