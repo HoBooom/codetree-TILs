@@ -29,6 +29,7 @@ while cnt < n**2:
         check += 1
         if check == 2:
             walk += 1
+            check = 0
     
     nr,nc = r + drs[direct],c + dcs[direct]
     if is_range(nr,nc) and board[nr][nc] == 0:
