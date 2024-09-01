@@ -34,4 +34,6 @@ def func_jump2(r1,c1):
     return count
 
 ans = func_jump1(r,c)
+if board[0][0] == board[r- 1][c - 1]:
+    ans = 0
 print(ans)
