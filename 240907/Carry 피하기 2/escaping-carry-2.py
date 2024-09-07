@@ -11,24 +11,14 @@ nums.sort(reverse = True)
 ans = -1
 
 def is_carry(num1,num2):
-    num1_units = []
-    num2_units = []
-    while num1 > 10:
-        num1_units.append(num1%10)
-        num1 = num1 // 10
-    num1_units.append(num1)
-    while num2 > 10:
-        num2_units.append(num2%10)
-        num2 = num2 // 10
-    num2_units.append(num2)
-
-    while len(num1_units) > 0 and len(num2_units) > 0:
-        n1 = num1_units.pop(0)
-        n2 = num2_units.pop(0)
-        #print("n1,n2 = ",n1,n2)
+    while num1 > 0 and num2 > 0:
+        
+        n1 = num1 % 10
+        n2 = num2 % 10
         if n1 + n2 >= 10:
             return True
-
+        num1 //= 10
+        num2 //= 10
     return False
 
 
@@ -47,7 +37,9 @@ for i in range(n - 2):
                 if is_carry(temp,n3) == False:
                     ans = temp + n3
                     break
-        else:
-            continue
+        if ans != -1:
+            break
+    if ans != -1:
+        break
 
 print(ans)
