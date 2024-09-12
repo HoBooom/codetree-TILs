@@ -1,21 +1,22 @@
-n,m = map(int,input().split())
+n, m = map(int, input().split())
 
-nums_a = list(map(int,input().split()))
-nums_b = list(map(int,input().split()))
+nums_a = list(map(int, input().split()))
+nums_b = list(map(int, input().split()))
 
-def is_in_list(temp_list,check_b):
+def is_in_list(temp_list, check_b):
+    # check_b의 복사본을 사용하여 상태를 초기화
+    temp_check_b = [v[:] for v in check_b]  # 얕은 복사 (리스트 복사)
     
-
     for i in range(len(temp_list)):
         if temp_list[i] not in nums_b:
             return False
 
-        for i,v in enumerate(check_b):
+        for j, v in enumerate(temp_check_b):
             if v[0] == temp_list[i] and v[1] == False:
-                v[1] = True
+                temp_check_b[j][1] = True
                 break
         
-    for i,v in enumerate(check_b):
+    for v in temp_check_b:
         if v[1] == False:
             return False
 
@@ -23,17 +24,14 @@ def is_in_list(temp_list,check_b):
 
 count = 0
 
-check_b = []
-for i in range(m):
-    check_b.append([nums_b[i],False])
-#print(check_b)
+# check_b 리스트 초기화
+check_b = [[nums_b[i], False] for i in range(m)]
 
-
+# 슬라이딩 윈도우 방식으로 nums_a에서 부분 리스트를 추출하여 비교
 for i in range(n - m + 1):
     temp_list = nums_a[i:i + m]
     
-    
-    if is_in_list(temp_list,check_b):
+    if is_in_list(temp_list, check_b):
         count += 1
 
 print(count)
