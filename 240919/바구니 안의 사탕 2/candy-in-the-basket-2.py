@@ -23,10 +23,6 @@ for i in range(first_place + k, last_place - k + 1):
     temp = 0
     f_index = i - k
     l_index = i + k
-    if f_index < 0:
-        f_index = 0
-    if l_index > 100:
-        l_index = 100
 
     
     for j in range(n):
