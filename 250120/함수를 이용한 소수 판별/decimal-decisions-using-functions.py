@@ -7,6 +7,8 @@ def f(n):
         if n % j == 0:
             #print(n)
             return False
+    if n == 1:
+        return False
     return True
 
 ans = 0
