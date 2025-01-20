@@ -15,6 +15,9 @@ for i in range(1,n):
         while m * (m_cnt) < i * n:
             m_cnt += 1
             #print(f"now n1 {i*n}, n2 {m*m_cnt}")
+        if i*n == m*m_cnt:
+            ans = i*n
+            break
     elif i*n == m*m_cnt:
         ans = i*n
         break
