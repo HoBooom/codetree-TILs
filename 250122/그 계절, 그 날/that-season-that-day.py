@@ -21,13 +21,13 @@ def checkSeason(m):
         print("Summer")
     elif 9<=m<=11:
         print("Fall")
-    elif m == 12 and 1<=m<=2:
+    elif m == 12 or 1<=m<=2:
         print("Winter")
     else:
         print(-1)
 
 
-if checkYear(Y):
+if checkYear(Y): #윤년이면
     if M == 2 and 1<=D<=29:
         print("Winter")
     elif M in months30 and 1<=D<=30:
@@ -36,7 +36,7 @@ if checkYear(Y):
         checkSeason(M)
     else:
         print(-1)
-else:
+else: #윤년이 아니면
     if M == 2 and 1<=D<=28:
         print("Winter")
     elif M in months30 and 1<=D<=30:
