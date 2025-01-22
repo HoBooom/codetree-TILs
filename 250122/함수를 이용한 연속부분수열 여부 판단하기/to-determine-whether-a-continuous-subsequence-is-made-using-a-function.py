@@ -4,7 +4,7 @@ b = list(map(int, input().split()))
 
 # Write your code here!
 
-temp = True
+temp = False
 
 for i in range(n1 - n2):
     if a[i] == b[0]:
