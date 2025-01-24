@@ -6,7 +6,7 @@ arr = list(map(int, input().split()))
 ans = 0
 
 def f(n,ans):
-    if n == 0:
+    if n == -1:
         return ans
     if arr[n] > ans:
         ans = arr[n]
