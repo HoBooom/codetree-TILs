@@ -1,27 +1,35 @@
 n = int(input())
-x = []
-dir = []
 
+OFFSET = 10*100
+MAXSET = 2*OFFSET + 1
 
-# Write your code here!
+commands = []
 
-line = [0] * (2*10*100 + 1)
-cnt = 10 * 100
+cnt = OFFSET
 
 for _ in range(n):
-    xi, di = input().split()
+    xi,dr = input().split()
     xi = int(xi)
-    if di == 'R':
-        for i in range(xi):
-            line[cnt] += 1
-            cnt += 1
-    if di =='L':
-        for i in range(xi):
-            line[cnt] += 1
-            cnt -= 1
+
+    if dr == 'R':
+        tempx1 = cnt
+        tempx2 = cnt + xi
+        commands.append((tempx1,tempx2))
+        cnt = cnt + xi
+    elif dr == 'L':
+        tempx1 = cnt - xi
+        tempx2 = cnt
+        commands.append((tempx1,tempx2))
+        cnt = cnt - xi
+
+line=[0] * MAXSET
+
+for _,item in enumerate(commands):
+    for i in range(item[0],item[1]):
+        line[i] += 1
 
 ans = 0
-for idx,value in enumerate(line):
-    if value >=2:
-        ans+= 1
+for _,item in enumerate(line):
+    if item >=2:
+        ans += 1
 print(ans)
