@@ -41,10 +41,12 @@ for i in range(2,len(a_point)):
     cnt_check = check(a_point[i],b_point[i])
     cnt_first = cnt_check
     if cnt_check != beforeSituation:
+        if beforeFirst == 0:
+            beforeFirst = cnt_first
+            continue
         if cnt_first != 0 and beforeFirst != cnt_first:
             ans += 1
             beforeFirst = cnt_first
-            
     beforeSituation = cnt_check
 
 print(ans)
