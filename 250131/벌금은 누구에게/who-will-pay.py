@@ -19,7 +19,9 @@ for _ in range(M):
         isAns = True
         break
 
-print(check(punish) + 1)
-
 if not isAns:
     print(-1)
+else:
+    print(check(punish) + 1)
+
+
