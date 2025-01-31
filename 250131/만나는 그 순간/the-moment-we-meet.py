@@ -35,11 +35,14 @@ for _ in range(m):
 
 #print(a)
 #print(b)
+isTrue = False
 
 for i,item in enumerate(a):
     if item == b[i] and i != 0:
         print(i)
+        isTrue = True
         break
             
-
+if not isTrue:
+    print(-1)
     
