@@ -34,7 +34,7 @@ for _,(di,xi) in enumerate(commands):
             ans = count
             isEnd = True
             break
-    is isEnd:
+    if isEnd:
         break
 
 print(ans)
