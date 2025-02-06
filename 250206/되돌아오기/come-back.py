@@ -25,13 +25,17 @@ for _ in range(N):
     commands.append((di,int(xi)))
 
 for _,(di,xi) in enumerate(commands):
+    isEnd = False
     for t in range(xi):
         cnt_x,cnt_y = cnt_x + dx[order[di]], cnt_y + dy[order[di]]
         count += 1
         #print(cnt_x,cnt_y,count)
         if cnt_x == first_x and cnt_y == first_y:
             ans = count
+            isEnd = True
             break
+    is isEnd:
+        break
 
 print(ans)
         
