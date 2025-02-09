@@ -36,9 +36,14 @@ first_points = find_first_rc(grid[0][0])
 
 
 for _,(r,c) in enumerate(first_points):
+    #print(r,c,':',end =" ")
     second_points = find_sec_rc(r,c,grid[r][c])
     ans += len(second_points)
+    #print(second_points)
 
-print(ans)
+if grid[0][0] == grid[R - 1][C - 1]:
+    print(0)
+else:
+    print(ans)
 
 
