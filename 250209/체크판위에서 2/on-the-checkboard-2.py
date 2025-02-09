@@ -9,8 +9,8 @@ cnt_r,cnt_c = 0,0
 
 def find_first_rc(color):
     find = []
-    for r in range(R-2):
-        for c in range(C - 2):
+    for r in range(1,R-2):
+        for c in range(1,C - 2):
             if color == 'W':
                 if grid[r][c] == 'B':
                     find.append((r,c))
