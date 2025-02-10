@@ -15,7 +15,9 @@ else:
         #print(i,a)
 
 #print(a)
-a = ''.join(a)
+if len(a) > 0:
+    a = ''.join(a)
+#print(a)
 ans = int(a,2)
 
 print(ans)
