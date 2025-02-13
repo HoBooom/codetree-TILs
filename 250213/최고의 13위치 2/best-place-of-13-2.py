@@ -9,7 +9,7 @@ for r in range(n):
         block = arr[r][c] + arr[r][c + 1] + arr[r][c + 2]
         for row in range(n):
             for col in range(n - 2):
-                if r == row and c <= col <= c + 2:
+                if r == row and c - 2 <= col <= c + 2:
                     continue
                 block2 = arr[row][col] + arr[row][col + 1] + arr[row][col + 2]
                 if block + block2 > ans:
