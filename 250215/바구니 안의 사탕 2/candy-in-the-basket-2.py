@@ -3,7 +3,7 @@ candy_box = [0] * 101
 
 for _ in range(N):
     c, p = map(int, input().split())
-    candy_box[p] = c
+    candy_box[p] += c
 
 ans = 0
 
