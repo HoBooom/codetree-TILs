@@ -16,11 +16,11 @@ def find_nums(a1):
             n1.add(N - 1)
     if a1 == 2:
         n1.add(N)
-    if n1 == N:
+    if a1 == N:
         n1.add(1)
         if N >= 2:
             n1.add(2)
-    if n1 == N - 1:
+    if a1 == N - 1:
         n1.add(1)
     return n1
 
