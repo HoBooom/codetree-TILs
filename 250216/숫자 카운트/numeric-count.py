@@ -2,9 +2,9 @@ n = int(input())
 
 nums = []
 
-for i in range(1,9):
-    for j in range(1,9):
-        for k in range(1,9):
+for i in range(1,9 + 1):
+    for j in range(1,9 + 1):
+        for k in range(1,9 + 1):
             if j != i:
                 if k != i and k != j:
                     num = (i*100 + j*10 + k)
@@ -37,7 +37,6 @@ ans = 0
 
 for _,item in enumerate(nums):
     if item != '000':
-        #print(item)
         ans += 1
 
 print(ans)
