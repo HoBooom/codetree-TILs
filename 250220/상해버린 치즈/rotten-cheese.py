@@ -34,11 +34,11 @@ def is_sick(man):
             return True
     return False
 
-def f(man,cheese):
+def f(man,cheese,cnt):
     temp = check_hospital(man)
     is_eat = False
     for _,(p,c,t) in enumerate(datas):
-        if p == man and cheese == c and t < temp:
+        if p == man and cheese == c and t < temp and t < cnt:
             is_eat = True
     return is_eat
 
@@ -51,9 +51,10 @@ for i in range(1,m + 1):
     probability = 0
     for _,(p,cheese,t) in enumerate(datas):
         if cheese == i and t < check_hospital(p):
-            probability += 1
+            if not f(p,cheese,t):
+                probability += 1
         elif cheese == i and t >= check_hospital(p):
-            if not f(p,cheese):
+            if not f(p,cheese,t):
                 is_contradiction = True
     
     for man in range(1,n + 1):
