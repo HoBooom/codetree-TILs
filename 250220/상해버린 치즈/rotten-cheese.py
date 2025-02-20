@@ -34,6 +34,14 @@ def is_sick(man):
             return True
     return False
 
+def f(man,cheese):
+    temp = check_hospital(man)
+    is_eat = False
+    for _,(p,c,t) in enumerate(datas):
+        if p == man and cheese == c and t < temp:
+            is_eat = True
+    return is_eat
+
 ans = 0
 
 #i번 치즈가 상했다고 가정
@@ -45,7 +53,8 @@ for i in range(1,m + 1):
         if cheese == i and t < check_hospital(p):
             probability += 1
         elif cheese == i and t >= check_hospital(p):
-            is_contradiction = True
+            if not f(p,cheese):
+                is_contradiction = True
     
     for man in range(1,n + 1):
         if is_sick(man):
@@ -55,6 +64,7 @@ for i in range(1,m + 1):
                     eat = True
             if not eat:
                 is_contradiction = True
+
     if is_contradiction:
         continue
     if ans < probability:
