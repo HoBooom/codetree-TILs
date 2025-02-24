@@ -16,14 +16,13 @@ for i in range(len(arr)):
     prefix_list.append(temp)
 
 idx1= prefix_list[0]
+ans = prefix_list[0]
 
 for i in range(1,len(prefix_list)):
-    if i == 0:
-        ans = max(prefix_list[i],ans)
-    else:
-        ans = max((prefix_list[i] - idx1),ans)
-        if prefix_list[i] < idx1:
-            idx1 = prefix_list[i]
+    ans = max((prefix_list[i] - idx1),ans)
+    if prefix_list[i] < idx1:
+        idx1 = prefix_list[i]
+        
 
 print(ans)
 
