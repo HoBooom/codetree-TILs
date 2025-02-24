@@ -24,6 +24,7 @@ for c in range(3):
     temp = [inp[0][c],inp[1][c],inp[2][c]]
     if is_win(temp):
         ans += 1
+
 temp = []
 for i in range(3):
     temp.append(inp[i][i])
