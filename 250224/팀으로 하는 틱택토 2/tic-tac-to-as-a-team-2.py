@@ -1,41 +1,29 @@
 inp = [list(input()) for _ in range(3)]
 
 # Write your code here!
-ans_set = []
 
-def is_win(lis):
-    temp = set()
-    for _,item in enumerate(lis):
-        temp.add(item)
+ans_set = set()
+
+def is_win(line):
+    temp = set(line)
     if len(temp) == 2:
-        ans_set.append(temp)
+        ans_set.add(tuple(sorted(temp)))
         return True
     return False
-ans = 0
 
-for r in range(3):
-    if is_win(inp[r]):
-        ans += 1
+def check(lines):
+    for line in lines:
+        is_win(line)
 
-for c in range(3):
-    temp = [inp[0][c],inp[1][c],inp[2][c]]
-    if is_win(temp):
-        ans += 1
+check(inp)
 
-temp = []
-for i in range(3):
-    temp.append(inp[i][i])
-if is_win(temp):
-    ans +=1
+check([[inp[0][c],inp[1][c],inp[2][c]]for c in range(3)])
 
-temp1 = [inp[0][2],inp[1][1],inp[2][0]]
-if is_win(temp1):
-    ans +=1 
+dias = [
+    [inp[0][2],inp[1][1],inp[2][0]],
+    [inp[0][0],inp[1][1],inp[2][2]],
+]
+check(dias)
 
+print(len(ans_set))
 
-anss = []
-for item in ans_set:
-    if item not in anss:
-        anss.append(item)
-
-print(len(anss))
