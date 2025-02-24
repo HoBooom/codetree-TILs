@@ -9,19 +9,18 @@ arr = list(map(int, input().split()))
 
 prefix_list = []
 
-def pre_min(i):
-    temp = - INT_MIN
-    for i in range(i):
-        if prefix_list[i] < temp:
-            temp = prefix_list[i]
-    return temp
 ans = INT_MIN
 temp = 0
 for i in range(len(arr)):
     temp += arr[i]
     prefix_list.append(temp)
 
+
+
 for i in range(len(prefix_list)):
-    ans = max((prefix_list[i] - pre_min(i)),ans)
+    if i == 0:
+        ans = max(prefix_list[i],ans)
+    else:
+        ans = max((prefix_list[i] - min(prefix_list[0:i])),ans)
 
 print(ans)
