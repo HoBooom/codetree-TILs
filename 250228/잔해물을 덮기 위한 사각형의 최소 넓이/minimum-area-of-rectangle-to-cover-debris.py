@@ -36,5 +36,8 @@ for x in range(2030):
 
 #print(max_x,max_y,min_x,min_y)
 ans = (abs(max_x - min_x)  * abs(max_y - min_y))
-print(ans)
+if ans == 4120900:
+    print(0)
+else:
+    print(ans)
 
