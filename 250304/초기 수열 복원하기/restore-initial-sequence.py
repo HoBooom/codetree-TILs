@@ -9,6 +9,8 @@ def check(num):
     cnt_n = num
     for i in range(len(after_list)):
         temp_n = after_list[i] - cnt_n
+        if temp_n <= 0:
+            return False
         ori_list.append(temp_n)
         cnt_n = temp_n
     #print(ori_list)
@@ -19,14 +21,13 @@ def check(num):
     return False
 
 def check_dup(ori_list):
-    dup = [0] * 1010
-    for idx,item in enumerate(ori_list):
-        if item <= 0:
-            return False
-        dup[item] += 1
-        if dup[item] >= 2:
+    temp = ori_list[:]
+    temp.sort()
+    for i in range(1,len(temp)):
+        if temp[i] == temp[i - 1]:
             return False
     return True
+
 
 
 
