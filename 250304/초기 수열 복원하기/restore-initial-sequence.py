@@ -19,13 +19,13 @@ def check(num):
     return False
 
 def check_dup(ori_list):
-    dup = [0] * 10
+    dup = [0] * 1010
     for idx,item in enumerate(ori_list):
+        if item <= 0:
+            return False
         dup[item] += 1
         if dup[item] >= 2:
             return False
-    if dup[0] > 0:
-        return False
     return True
 
 
