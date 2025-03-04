@@ -24,6 +24,8 @@ def check_dup(ori_list):
         dup[item] += 1
         if dup[item] >= 2:
             return False
+    if dup[0] > 0:
+        return False
     return True
 
 
