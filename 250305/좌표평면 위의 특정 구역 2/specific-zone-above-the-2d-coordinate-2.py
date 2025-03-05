@@ -1,39 +1,24 @@
 import sys
 
-MAXSIZE = sys.maxsize
+INT_MAX = sys.maxsize
 
 n = int(input())
 
-board = [tuple(map(int,input().split())) for _ in range(n)]
+points = [tuple(map(int,input().split())) for _ in range(n)]
+x = [p[0] for p in points]
+y = [p[1] for p in points]
 
-def f(board):
-    x_list = []
-    y_list = []
-    for _,(x,y) in enumerate(board):
-        x_list.append(x)
-        y_list.append(y)
-    x0,x1 = min(x_list),max(x_list)
-    y0,y1 = min(y_list),max(y_list)
-    x = abs(x1 - x0)
-    y = abs(y1 - y0)
-    return x * y
-
-ans = MAXSIZE
+ans = INT_MAX
 
 for i in range(n):
-    tboard = []
-    temp = 0
-    for j in range(n):
-        if i == j:
-            continue
-        tboard.append(board[j])
-    temp = f(tboard)
-    if temp < ans:
-        ans = temp
+    max_x = max(x[:i] + x[i + 1:])
+    max_y = max(y[:i] + y[i + 1:])
+    min_x = min(x[:i] + x[i + 1:])
+    min_y = min(y[:i] + y[i + 1:])
+
+    area = (max_x - min_x) * (max_y - min_y)
+    ans = min(ans,area)
 
 print(ans)
 
-    
 
-
-        
