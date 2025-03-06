@@ -17,12 +17,7 @@ def distance(points):
 ans = MAXINT
 
 for i in range(1,len(points) - 1):
-    temp_points = points[:]
-    temp_points.pop(i)
-    #print(temp_points,end = " ")
-    cnt_dis = distance(temp_points)
-    #print(cnt_dis)
-    if ans > cnt_dis:
-        ans = cnt_dis
+    cnt_dis = distance(points[:i] + points[i + 1:])
+    ans = min(ans,cnt_dis)
 
 print(ans)
