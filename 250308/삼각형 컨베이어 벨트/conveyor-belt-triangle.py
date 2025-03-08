@@ -1,6 +1,6 @@
 n,t = map(int,input().split())
 
-board = [list(map(int,input().split())) for _ in range(n)]
+board = [list(map(int,input().split())) for _ in range(3)]
 
 def push(row):
     temp = row[-1]
@@ -11,12 +11,12 @@ def push(row):
 
 for _ in range(t):
     temp_list = []
-    for i in range(n):
+    for i in range(3):
         temp = 0
         board[i],temp = push(board[i])
         temp_list.append(temp)
     
-    for i in range(n):
+    for i in range(3):
         if i == 0:
             board[i][0] = temp_list[-1]
         else:
