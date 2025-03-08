@@ -14,6 +14,8 @@ def check_r(i):
             sequence = 1
         if sequence >= m:
             return True
+    if m == 1:
+        return True
     return False
 
 def check_c(i):
@@ -30,6 +32,8 @@ def check_c(i):
             sequence = 1
         if sequence >= m:
             return True
+    if m == 1:
+        return True
     return False
     
         
