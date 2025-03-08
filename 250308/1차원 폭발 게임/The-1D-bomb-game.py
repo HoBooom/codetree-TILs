@@ -1,4 +1,4 @@
-n,m = map(int,input().split())
+n, m = map(int,input().split())
 
 boom = [int(input()) for _ in range(n)]
 
@@ -36,8 +36,12 @@ def set_boom(boom):
 
 while True:
     #print(*boom)
+    if m == 1:
+        boom = []
+        break
     if not check(boom):
         break
+    
     set_boom(boom)
     #print(*boom)
     temp = []
