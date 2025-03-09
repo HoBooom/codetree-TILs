@@ -18,28 +18,28 @@ def boom(arr):
             arr[i] = 0
     return arr
 
+def logic(arr):
+    arr = shift(arr)
+    arr = boom(arr)
+    arr = shift(arr)
+    return arr
+
 
 if direct == 'R':
     for i in range(4):
         temp_arr = list(reversed(board[i]))
-        temp_arr = shift(temp_arr)
-        temp_arr = boom(temp_arr)
-        temp_arr = shift(temp_arr)
+        temp_arr = logic(temp_arr)
         board[i] = list(reversed(temp_arr))
 elif direct == 'L':
     for i in range(4):
-        temp_arr = shift(board[i])
-        temp_arr = boom(temp_arr)
-        temp_arr = shift(temp_arr)
+        temp_arr = logic(board[i])
         board[i] = temp_arr
 elif direct == 'U':
     for c in range(4):
         temp_arr = []
         for r in range(4):
             temp_arr.append(board[r][c])
-        temp_arr = shift(temp_arr)
-        temp_arr = boom(temp_arr)
-        temp_arr = shift(temp_arr)
+        temp_arr = logic(temp_arr)
         for r in range(4):
             board[r][c] = temp_arr[r]
 elif direct == 'D':
@@ -47,14 +47,13 @@ elif direct == 'D':
         temp_arr = []
         for r in reversed(range(4)):
             temp_arr.append(board[r][c])
-        temp_arr = shift(temp_arr)
-        temp_arr = boom(temp_arr)
-        temp_arr = shift(temp_arr)
+        temp_arr = logic(temp_arr)
         for i in range(4):
             board[3 - i][c] = temp_arr[i]
 
 for r in range(4):
     print(*board[r])
+
 
 
 
