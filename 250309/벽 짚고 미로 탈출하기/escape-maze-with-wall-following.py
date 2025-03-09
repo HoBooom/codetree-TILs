@@ -15,6 +15,7 @@ dr,dc = [0,-1,0,1],[1,0,-1,0]
 dir_num = 0
 start_r,start_c = cnt_r,cnt_c
 time = 0
+check = 0
 
 def is_range(r,c):
     if 0 <= r < n and 0 <= c < n:
@@ -28,7 +29,7 @@ def is_right_block(r,c):
     return False
 
 while True:
-    if time != 0 and (cnt_r,cnt_c) == (start_r,start_c):
+    if time != 0 and (cnt_r,cnt_c) == (start_r,start_c) or check >= 4:
         time = -1
         break
 
@@ -41,6 +42,7 @@ while True:
         #만약 앞의 놈이 벽이면
         if board[nr][nc] == '#':
             dir_num = (dir_num + 1) % 4
+            check += 1
         else:
             if is_right_block(nr,nc):
                 cnt_r,cnt_c = nr,nc
@@ -49,6 +51,7 @@ while True:
                 cnt_r,cnt_c = nr,nc
                 time += 1
                 dir_num = (dir_num - 1) % 4
+            check = 0
 
 print(time)
 
