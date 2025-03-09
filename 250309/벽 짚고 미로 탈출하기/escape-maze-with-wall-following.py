@@ -29,7 +29,7 @@ def is_right_block(r,c):
     return False
 
 while True:
-    if (time != 0 and (cnt_r,cnt_c) == (start_r,start_c)) or check >= 4:
+    if (time != 0 and ((cnt_r,cnt_c) == (start_r,start_c) and dir_num == 0)) or check >= 4:
         time = -1
         break
 
