@@ -9,18 +9,25 @@ num_counter = Counter(num_list)
 def bigger_than_num(cnt_num):
     count = 0
     for num,count_n in num_counter.items():
-        if num > cnt_num:
+        if num >= cnt_num:
             count += count_n
     return count
 
+def count_minus_one(cnt_num):
+    count = 0
+    for num,count_n in num_counter.items():
+        if num == cnt_num - 1:
+            count += count_n
+            break
+    return count
+
+
 ans = 0
 
-for i in range(N):
-    is_num = False
-    cnt_num = num_list[i]
-    count_sum = bigger_than_num(cnt_num) + num_list.count(cnt_num)
+for cnt_num in range(1,100):
+    count_sum = bigger_than_num(cnt_num)
+    cnt_num_minus_one = count_minus_one(cnt_num - 1)
 
-    cnt_num_minus_one = num_list.count(cnt_num - 1)
     if cnt_num_minus_one >= L:
         count_sum += L
     else:
@@ -28,8 +35,11 @@ for i in range(N):
     
     if count_sum >= cnt_num:
         ans = max(ans,cnt_num)
+    
 
 print(ans)
+
+
         
     
 
