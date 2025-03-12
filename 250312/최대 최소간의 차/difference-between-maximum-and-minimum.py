@@ -1,55 +1,48 @@
-from collections import Counter
-import sys
-
-INT_MAX = sys.maxsize
-
 n, k = map(int,input().split())
 
 nums = list(map(int,input().split()))
 
-nums_counter = Counter(nums)
-ori_counter = nums_counter.copy()
-#print(ori_counter)
+nums.sort()
 
-ans = INT_MAX
+cnt_min = nums[0]
+cnt_max = nums[-1]
 
-def check_min_max(nums_counter):
-    min_num = 10000
-    min_num_count = 0
-    max_num = 0
-    max_num_count = 0
-    for num, count in nums_counter.items():
-        #print(num,count)
-        if min_num > num:
-            min_num = num
-            min_num_count = count
-        if max_num < num:
-            max_num = num
-            max_num_count = count
-    return min_num,min_num_count,max_num,max_num_count
+def min_num_count(nums):
+    count = 1
+    for i in range(n - 1):
+        if nums[i] != nums[i + 1]:
+            break
+        count += 1
+    return count
 
-for cost in range(k + 1):
-    nums_counter = ori_counter.copy()
-    min_num,min_num_count,max_num,max_num_count = check_min_max(nums_counter)
-    #print(cost)
-    cnt_cost = 0
-    #print(min_num,min_num_count,max_num,max_num_count)
-    while max_num - min_num > cost:
-        if min_num_count >= max_num_count:
-            nums_counter[max_num - 1] = nums_counter.get(max_num - 1, 0) + nums_counter.pop(max_num)
-            cnt_cost += max_num_count
-        elif min_num_count < max_num_count:
-            nums_counter[min_num + 1] = nums_counter.get(min_num + 1, 0) + nums_counter.pop(min_num)
-            cnt_cost += min_num_count
-        min_num,min_num_count,max_num,max_num_count = check_min_max(nums_counter)
-        #print(min_num,min_num_count,max_num,max_num_count,"cost",cnt_cost)
+def max_num_count(nums):
+    count = 1
+    for i in reversed(range(1,n)):
+        if nums[i] != nums[i - 1]:
+            break
+        count += 1
+    return count
+
+cnt_cost = 0
+
+while cnt_max - cnt_min > k:
+    max_minus_cost = max_num_count(nums)
+    min_plus_cost = min_num_count(nums)
+    if max_minus_cost > min_plus_cost:
+        for i in range(n):
+            if nums[i] == cnt_min:
+                nums[i] += 1
+        cnt_cost += min_plus_cost
+    else:
+        for i in reversed(range(n)):
+            if nums[i] == cnt_max:
+                nums[i] -= 1
+        cnt_cost += max_minus_cost
+    # print(f"cnt_max {cnt_max},{max_minus_cost} cnt_min {cnt_min},{min_plus_cost} cnt_cost {cnt_cost}")
+    # print(*nums)
+    cnt_max = nums[-1]
+    cnt_min = nums[0]
+
+print(cnt_cost)
     
-    #print(cnt_cost)
-    ans = min(cnt_cost,ans)
-        
-print(ans)
-
-    
-    
-
-    
+                
