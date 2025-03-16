@@ -13,7 +13,9 @@ after_p = message[P - 1:]
 for _,(m,n) in enumerate(after_p):
     if m in all_man:  # 리스트에 있는 경우만 제거
         all_man.remove(m)
-#print(*all_man)
+        
+if message[P - 1][1] == message[P - 2][1]:
+    all_man.remove(message[P - 2][0])
 
 if message[P - 1][1] == 0:
     print()
