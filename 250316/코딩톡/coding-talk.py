@@ -1,23 +1,20 @@
-N, M, P = map(int,input().split())
+import sys
 
-message = []
-for _ in range(M):
-    man, count = input().split()
-    message.append((man,int(count)))
+n,m,p = map(int,input().split())
 
-all_man = []
-for i in range(N):
-    all_man.append(chr(ord("A") + i))
+message = [list(input().split()) for _ in range(m)]
 
-after_p = message[P - 1:]
-for _,(m,n) in enumerate(after_p):
-    if m in all_man:  # 리스트에 있는 경우만 제거
-        all_man.remove(m)
+if int(message[p - 1][1]) == 0:
+    sys.exit()
+
+for i in range(n):
+    person = chr(ord('A') + i)
+    read = False
+
+    for c, u in message:
+        u = int(u)
+        if u >= int(message[p - 1][1]) and c == person:
+            read = True
         
-if message[P - 1][1] == message[P - 2][1]:
-    all_man.remove(message[P - 2][0])
-
-if message[P - 1][1] == 0:
-    print()
-else:
-    print(*all_man)
+    if read == False:
+        print(person, end=" ")
