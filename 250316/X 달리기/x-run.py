@@ -5,26 +5,22 @@
 #f(a - 1)시간을 1초씩 늘려가면서 찾기
 X = int(input())
 
-temp_high = 0
+max_speed = 0
 
 for i in range(1,X + 1):
-    if i ** 2 == X:
-        temp_high = i
+    if i ** 2 >= X:
+        max_speed = i if i ** 2 == X else i - 1
         break
-    if i ** 2 > X:
-        temp_high = i - 1
-        break
+        
 
-temp = X - (temp_high ** 2) 
-time = temp_high + temp_high - 1
-#print(f"befor while {time}, temp = {temp}, temp_high = {temp_high}")
-while temp > 0:
-    #print(temp_high, time)
-    if temp >= temp_high:
+remain_dis = X - (max_speed ** 2) 
+time = 2 * max_speed - 1
+while remain_dis > 0:
+    if remain_dis >= max_speed:
         time += 1
-        temp -= temp_high
+        remain_dis -= max_speed
     else:
-        temp_high -= 1
+        max_speed -= 1
 print(time)
 
 
