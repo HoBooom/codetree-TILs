@@ -12,9 +12,10 @@ while True:
     if nums[1] - nums[0] >= nums[2] - nums[1]:
         nums[2] = nums[1] - 1
         count += 1
+        nums[1],nums[2] = nums[2],nums[1]
     else:
         nums[0] = nums[1] + 1
         count += 1
-    nums.sort()
+        nums[0],nums[1] = nums[1],nums[0]
 print(count)
     
