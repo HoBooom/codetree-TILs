@@ -13,7 +13,7 @@ while True:
         nums[2] = nums[1] - 1
         count += 1
     else:
-        num[0] = nums[1] + 1
+        nums[0] = nums[1] + 1
         count += 1
     nums.sort()
 print(count)
