@@ -1,21 +1,14 @@
+import sys
+
 nums = list(map(int,input().split()))
 
-def is_end(nums):
-    a,b,c = nums[0],nums[1],nums[2]
-    return c-b == 1 and b-a == 1
+if nums[2] - nums[1] == nums[1] - nums[0] == 1:
+    print(0)
+    sys.exit()
 
-count = 0
+max_move = 0
 
-while True:
-    if is_end(nums):
-        break
-    if nums[1] - nums[0] >= nums[2] - nums[1]:
-        nums[2] = nums[1] - 1
-        count += 1
-        nums[1],nums[2] = nums[2],nums[1]
-    else:
-        nums[0] = nums[1] + 1
-        count += 1
-        nums[0],nums[1] = nums[1],nums[0]
-print(count)
-    
+max_move = max(max_move,nums[2] - nums[1] - 1)
+max_move = max(max_move,nums[1] - nums[0] - 1)
+
+print(max_move)
