@@ -20,7 +20,13 @@ if len(neg_nums) >= 2:
         t2 = neg_nums[0] * neg_nums[1] * pos_nums[-1]
         ans = max(t1,t2)
     else:
-        ans = pos_nums[-1] * pos_nums[-2] * pos_nums[-3]
+        if len(pos_nums) > 0:
+            ans = neg_nums[0] * neg_nums[1] * pos_nums[-1]
+        else:
+            if 0 in nums:
+                ans = 0
+            else:
+                ans = neg_nums[-1] * neg_nums[-2] * neg_nums[-3]
 else:
     if len(pos_nums) >= 3:
         ans = pos_nums[-1] * pos_nums[-2] * pos_nums[-3]
