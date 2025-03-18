@@ -22,6 +22,9 @@ if len(neg_nums) >= 2:
     else:
         ans = pos_nums[-1] * pos_nums[-2] * pos_nums[-3]
 else:
-    ans = pos_nums[-1] * pos_nums[-2] * pos_nums[-3]
+    if len(pos_nums) >= 3:
+        ans = pos_nums[-1] * pos_nums[-2] * pos_nums[-3]
+    else:
+        ans = pos_nums[-1] * pos_nums[-2] * neg_nums[0]
 print(ans)
 
