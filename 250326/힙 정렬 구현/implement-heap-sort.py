@@ -18,7 +18,7 @@ def heapify(arr, n, cnt_idx):
         heapify(arr, n, largest_idx)
 
 def heap_sort(arr):
-    for i in reversed(range(1,n//2 + 1)):
+    for i in reversed(range(1,n//2)):
         heapify(arr,n,i)
 
     for i in reversed(range(2,n)):
