@@ -10,12 +10,12 @@ def heapify(arr, n, cnt_idx):
 
     if left_child_idx < n and arr[left_child_idx] > arr[largest_n_idx]:
         largest_n_idx = left_child_idx
-    elif right_child_idx < n and arr[right_child_idx] > arr[largest_n_idx]:
+    if right_child_idx < n and arr[right_child_idx] > arr[largest_n_idx]:
         largest_n_idx = right_child_idx
 
     if largest_n_idx != cnt_idx:
         arr[cnt_idx],arr[largest_n_idx] = arr[largest_n_idx],arr[cnt_idx]
-        heapify(arr, n, cnt_idx)
+        heapify(arr, n, largest_n_idx)
 
 def heap_sort(arr,n):
     #build_max_heap
