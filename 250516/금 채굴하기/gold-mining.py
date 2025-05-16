@@ -20,7 +20,7 @@ ans = 0
 
 for r in range(n):
     for c in range(n):
-        for k in range(2*(n-1)):
+        for k in range(2*(n-1) + 1):
             cnt_benefit = check(r,c,k)
             cnt_cost = cost(k)
             if cnt_benefit * m >= cnt_cost:
