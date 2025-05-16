@@ -23,7 +23,7 @@ for r in range(n):
         for k in range(2*(n-1)):
             cnt_benefit = check(r,c,k)
             cnt_cost = cost(k)
-            if cnt_benefit * m > cnt_cost:
+            if cnt_benefit * m >= cnt_cost:
                 ans = max(cnt_benefit,ans)
             #print(f"r,c : {r},{c}  {cnt_benefit},{cnt_cost},{cnt_total}")
             
