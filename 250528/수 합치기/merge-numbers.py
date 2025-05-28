@@ -1,17 +1,16 @@
+import heapq
+
 n = int(input())
 
 nums = list(map(int,input().split()))
-
+heapq.heapify(nums)
 
 cost = 0
-while True:
-    if len(nums) == 1:
-        break
-    nums.sort()
-    a = nums.pop(0)
-    b = nums.pop(0)
-    nums.append(a + b)
+
+while len(nums) > 1:
+    a = heapq.heappop(nums)
+    b = heapq.heappop(nums)
+    heapq.heappush(nums,a + b)
     cost += a + b
 
 print(cost)
-
