@@ -21,7 +21,7 @@ def find_pos_max():
                 for l in range(j,m):
                     if check_pos_rect(i,j,k,l):
                         max_sum = max(max_sum, rect_size(i,j,k,l))
-    return max_sum
+    return max_sum if max_sum != 0 else -1
 
 ans = find_pos_max()
 print(ans)
