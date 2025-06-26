@@ -53,15 +53,25 @@ ans = 0
 
 for r in range(n):
     for c in range(n):
-        temp_grid = [[grid[r][c] for r in range(n)] for c in range(n)]
+        temp_grid = [[0 for r in range(n)] for c in range(n)]
         #print("-------------")
-        
+        for row in range(n):
+            for column in range(n):
+                temp_grid[row][column] = grid[row][column]
+        #print_grid(temp_grid)
         temp_grid = boom(r,c,temp_grid)
         temp_grid = reset(temp_grid)
 
         #print_grid(temp_grid)
-        ans = max(ans, check(temp_grid))
+        #ans = max(ans, check(temp_grid))
         #print(ans, check(temp_grid))
+        if ans < check(temp_grid):
+            ans = check(temp_grid)
+            # print("----------")
+            # print(ans)
+            # print(f"r,c {r},{c}")
+            #print_grid(temp_grid)
+            
         
 
 print(ans)
