@@ -26,10 +26,7 @@ def move(ball):
     nr,nc = r + drs[d], c + dcs[d]
     if not is_range(nr,nc):
         d = 3 - d
-        nr,nc = r + drs[d], c + dcs[d]
-    if not is_range(nr,nc):
-        d = 3 - d
-        nr,nc = r,c
+        nr,nc = r,c 
     return [nr,nc,d,w,i]
 
 def move_all_balls():
@@ -54,8 +51,10 @@ def move_all_balls():
                 _,_,dir_num,_,ball_id = temp_grid[r][c][0]
                 next_balls.append([r,c,dir_num,weight_sum,ball_id])
     
-    #print(*next_balls)
+    # print(*next_balls)
     return next_balls
+
+
 
 def print_grid(balls):
     temp_grid = [
@@ -72,13 +71,13 @@ def print_grid(balls):
     print("-----------")
 
 
-for _ in range(T + 1):
-    #print_grid(balls)
-    #print(*balls)
+for _ in range(T):
+    # print_grid(balls)
+    # print(*balls)
     balls = move_all_balls()
-    #print_grid(balls)
-    #print()
-    #print("------------------------")
+    # print_grid(balls)
+    # print()
+    # print("------------------------")
 
 balls.sort(key = lambda x : -x[3])
 print(len(balls), balls[0][3])
