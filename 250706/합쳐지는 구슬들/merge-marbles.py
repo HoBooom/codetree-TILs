@@ -27,6 +27,9 @@ def move(ball):
     if not is_range(nr,nc):
         d = 3 - d
         nr,nc = r + drs[d], c + dcs[d]
+    if not is_range(nr,nc):
+        d = 3 - d
+        nr,nc = r,c
     return [nr,nc,d,w,i]
 
 def move_all_balls():
