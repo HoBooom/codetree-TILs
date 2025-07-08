@@ -2,7 +2,9 @@ n = int(input())
 
 lines = [list(map(int,input().split())) for _ in range(n)]
 
-lines.sort(key = lambda x : x[0])
+lines.sort(key = lambda x : x[1])
+ans_line=[]
+ans_line.append(lines[0])
 
 count = 1
 
@@ -15,5 +17,9 @@ for i in range(1,n):
     else:
         end_point = lines[i][1]
         count += 1
+        ans_line.append(lines[i])
+
+# print(lines)
+# print(ans_line)
     
 print(count)
