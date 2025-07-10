@@ -10,6 +10,7 @@ lines = [
 ]
 
 lines.sort(key = lambda x : (x[0],x[1]))
+max_height = max(line[1] for line in lines)
 
 cnt_lines = []
 
@@ -17,7 +18,7 @@ ans = INT_MAX
 
 
 def ori_output(lines):
-    ladder = [[0] * (n + 1) for _ in range(m + 1)]
+    ladder = [[0] * (n + 2) for _ in range(max_height + 1)]
 
     for a,b in lines:
         ladder[b][a] = 1
@@ -26,7 +27,7 @@ def ori_output(lines):
     
     for start in range(1,n + 1):
         pos = start
-        for row in range(1,m + 1):
+        for row in range(1,max_height + 1):
             if ladder[row][pos]:
                 pos += 1
             elif ladder[row][pos - 1]:
@@ -41,7 +42,7 @@ ori_output = ori_output(lines)
 def line_output(cnt_lines_check):
     global ori_output
 
-    ladder = [[0] * (n + 1) for _ in range(m + 1)]
+    ladder = [[0] * (n + 1) for _ in range(max_height + 1)]
 
     cnt_ladder_count = 0
     
@@ -55,7 +56,7 @@ def line_output(cnt_lines_check):
 
     for start in range(1,n + 1):
         pos = start
-        for row in range(1,m + 1):
+        for row in range(1,max_height + 1):
             if ladder[row][pos]:
                 pos += 1
             elif ladder[row][pos - 1]:
