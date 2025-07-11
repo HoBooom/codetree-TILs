@@ -13,12 +13,12 @@ def possible_weigh(w):
     return w <= c
 
 def is_intersect(c1,c2):
-    if c2 < c1 + m - 1 or c1 < c2 + m - 1:
+    if (c1 <= c2 <= c1 + m - 1) or (c2 <= c1 <= c2 + m - 1):
         return True
     return False
 
 def possible_position(r1,c1,r2,c2):
-    if c1 > n - m or c2 > n - m:
+    if c1 + m - 1 >= n or c2 + m - 1 >= n:
         return False
     if r1 != r2 and r1 < n and r2 < n:
         return True
