@@ -1,8 +1,12 @@
+import sys
+
+INT_MIN = -sys.maxsize
+
 input_oper = list(input())
 
 nums = {}
 
-ans = 0
+ans = INT_MIN
 
 opers = []
 
