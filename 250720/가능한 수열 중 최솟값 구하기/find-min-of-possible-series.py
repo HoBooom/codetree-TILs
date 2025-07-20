@@ -1,8 +1,9 @@
 n = int(input())
 
-nums_list = []
+# nums_list = []
 
 nums = []
+found = False
 
 def check(num):
     for i in range(1,n + 1):
@@ -13,10 +14,15 @@ def check(num):
 
 def make_nums(len_n):
     global nums
+    global found
+    if found:
+        return True
+
     if len_n == n:
         if check(nums):
-            #print(*nums)
-            nums_list.append(nums[:])
+            print(*nums,sep="")
+            found = True
+            # nums_list.append(nums[:])
         return
     
     for i in range(4, 6 + 1):
@@ -26,5 +32,5 @@ def make_nums(len_n):
 
 make_nums(0)
 
-nums_list.sort()
-print(*nums_list[0],sep="")
+# nums_list.sort()
+# print(*nums_list[0],sep="")
