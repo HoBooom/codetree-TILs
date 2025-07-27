@@ -16,11 +16,11 @@ def dist(a,b):
     return (((a_x - b_x) ** 2) + ((a_y - b_y) ** 2))
 
 def calc():
-    min_dist = INT_MAX
+    min_dist = 0
 
     for i in range(m - 1):
         for j in range(i + 1, m):
-            min_dist = min(min_dist, dist(select_points[i], select_points[j]))
+            min_dist = max(min_dist, dist(select_points[i], select_points[j]))
 
     return (min_dist)
 
