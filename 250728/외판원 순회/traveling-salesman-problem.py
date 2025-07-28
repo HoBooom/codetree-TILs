@@ -8,7 +8,7 @@ info = [
     list(map(int,input().split())) for _ in range(n)
 ]
 
-visited = [False] * n
+visited = [False] * n 
 visited[0] = True
 
 cost = []
@@ -17,14 +17,17 @@ ans = INT_MAX
 
 def find(cur_idx, cnt):
     global ans
-    
-    if cur_idx == n:
+
+    if cur_idx == n - 1:
         cnt_cost = sum(cost) + info[cnt][0]
+        #print(cnt, cost)
         ans = min(ans, cnt_cost)
         return
 
 
-    for i in range(n):
+    for i in range(1,n):
+        if info[cnt][i] == 0:
+            continue
         if visited[i]:
             continue
         
@@ -37,6 +40,6 @@ def find(cur_idx, cnt):
 
     return
 
-find(1,0)
+find(0,0)
 
 print(ans)
