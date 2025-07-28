@@ -19,6 +19,8 @@ def find(cur_idx, cnt):
     global ans
 
     if cur_idx == n - 1:
+        if info[cnt][0] == 0:
+            return
         cnt_cost = sum(cost) + info[cnt][0]
         #print(cnt, cost)
         ans = min(ans, cnt_cost)
