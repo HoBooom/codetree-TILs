@@ -27,6 +27,8 @@ def gogo(r,c):
     if r == n - 1 and c == m - 1:
         # print("yes")
         is_arrived = True
+    if is_arrived:
+        return 
     
     drs, dcs = [0,1], [1,0]
 
