@@ -16,7 +16,7 @@ def is_range(r,c):
 def can_go(r,c):
     if not is_range(r,c):
         return False
-    if grid[r][c] == 0:
+    if grid[r][c] == 0 or visited[r][c]:
         return False
     return True                                
 
@@ -32,7 +32,7 @@ def gogo(r,c):
     
     drs, dcs = [0,1], [1,0]
 
-    # visited[r][c] = True
+    visited[r][c] = True
 
     for dr,dc in zip(drs,dcs):
         nr, nc = r + dr, c + dc
