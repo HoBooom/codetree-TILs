@@ -58,7 +58,7 @@ for k in range(1, max_depth + 1):
 
 ans_k, ans_area = -1, -1
 
-for i in range(len(area)):
+for i in range(1,len(area)):
     if ans_area < area[i]:
         ans_area = area[i]
         ans_k = i
