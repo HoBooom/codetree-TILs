@@ -17,6 +17,7 @@ def is_range(r,c):
 queue = deque()
 
 queue.appendleft((0,0))
+visited[0][0] = True
 
 drs,dcs = [0,1,0,-1],[1,0,-1,0]
 
@@ -25,12 +26,13 @@ while True:
         break
     
     cnt_r,cnt_c = queue.pop()
-    visited[cnt_r][cnt_c] = True
+    
 
     for dr, dc in zip(drs,dcs):
         nr,nc = cnt_r + dr, cnt_c + dc
         if is_range(nr,nc) and not visited[nr][nc] and grid[nr][nc] != 0:
             queue.appendleft((nr,nc))
+            visited[nr][nc] = True
 
 if visited[n - 1][m - 1]:
     print(1)
