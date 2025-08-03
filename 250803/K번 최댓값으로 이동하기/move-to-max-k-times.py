@@ -34,14 +34,18 @@ def move(cnt_r,cnt_c):
                 queue.appendleft((nr,nc))
                 can_go[nr][nc] = True
                 cnt_max = max(cnt_max, grid[nr][nc])
+
+    # print(*can_go, sep="\n")
+    
     
     if cnt_max == 0:
         return cnt_r,cnt_c
     
     for r in range(n):
         for c in range(n):
-            if grid[r][c] == cnt_max:
+            if grid[r][c] == cnt_max and can_go[r][c]:
                 return r,c
+    
     
         
 
@@ -50,5 +54,7 @@ for _ in range(k):
     if (nr,nc) == (cnt_r,cnt_c):
         break
     cnt_r,cnt_c = nr,nc
+    # print(cnt_r,cnt_c)
+    # print()
 
 print(cnt_r + 1,cnt_c + 1)
