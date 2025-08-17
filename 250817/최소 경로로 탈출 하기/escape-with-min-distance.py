@@ -32,7 +32,10 @@ while q:
                 distance[nr][nc] = distance[cnt_r][cnt_c] + 1
                 q.appendleft((nr,nc))
 
-print(distance[n - 1][m - 1])
+if distance[n - 1][m - 1] == 0:
+    print(-1)
+else:
+    print(distance[n - 1][m - 1])
 
 
 
