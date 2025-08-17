@@ -32,7 +32,9 @@ while queue:
                 jump[nr][nc] = jump[cnt_r][cnt_c] + 1
                 queue.appendleft((nr,nc))
 
-if jump[r2-1][c2-1] == 0:
+if (r1,c1) == (r2,c2):
+    print(0)
+elif jump[r2-1][c2-1] == 0:
     print(-1)
 else:
     print(jump[r2-1][c2-1])
