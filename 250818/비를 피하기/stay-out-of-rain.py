@@ -43,10 +43,13 @@ def move(r,c):
                     q.appendleft((nr,nc))
     
     for (r,c) in pos_of_safe:
-        temp_min = min(temp_min, temp_grid[r][c])
-    if temp_min == 0:
-        return -1
+        if temp_grid[r][c] != 0:
+            temp_min = min(temp_min, temp_grid[r][c])
     
+    # print("=" *  20)
+    # print(*temp_grid, sep='\n')
+    if temp_min == INT_MAX:
+        return -1
     return temp_min
 
 for r in range(n):
